@@ -6,7 +6,7 @@ import functions as f
 import random as rnd
 
 edificios=[[1,'leñador'],[2,'barrera'],[3,'hierro'],[4,'cereal'],[5,'serreria'],[6,'ladrillar'],[7,'fundicion'],[8,'molino'],[9,'panaderia'],[10,'almacen'],[11,'granero'],[13,'herreria'],[15,'edifprin'],[16,'plaza'],[17,'mercado'],[18,'embajada'],[19,'cuartel'],[20,'establo'],[21,'taller'],[22,'academia'],[23,'escondite'],[24,'ayuntamiento'],[25,'residencia'],[26,'palacio'],[27,'tesoro'],[28,'oficina'],[32,'terraplen'],[37,'hogar']]
-populate=True
+populate=False
 N=50
 bono=True
 
@@ -78,7 +78,7 @@ for x in range(500):
             tabla=edificios[rand][1]
             if lvl==10:
                 continue
-            con = sqlite3.connect('database.db')
+            con = sqlite3.connect('edificios.db')
             cursor = con.cursor()
             cursor.execute("SELECT madera,barro,hierro,cereal FROM %s WHERE id=%s;" % (tabla, lvl+1)) 
             recursosSeparado=cursor.fetchone()
@@ -137,7 +137,7 @@ for x in range(500):
                 continue
 
             tabla=edificios[rand][1]
-            con = sqlite3.connect('database.db')
+            con = sqlite3.connect('edificios.db')
             cursor = con.cursor()
             cursor.execute("SELECT madera,barro,hierro,cereal FROM %s WHERE id=%s;" % (tabla, lvl+1)) 
             recursosSeparado=cursor.fetchone()

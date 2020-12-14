@@ -14,7 +14,7 @@ class Aldea:
         edificios=self.edificios
         tiempo=self.tiempo
         habis=self.habis
-        con = sqlite3.connect('database.db')
+        con = sqlite3.connect('edificios.db')
         cursor = con.cursor()
         cont=0
         for i in range(len(edificios[0])):
@@ -64,7 +64,7 @@ class Aldea:
     def balanceCereal(self):
         edificios=self.edificios
         habis=self.habis
-        con = sqlite3.connect('database.db')
+        con = sqlite3.connect('edificios.db')
         cursor = con.cursor()
         cont=0
         for i in range(len(edificios[3])):
@@ -83,7 +83,7 @@ class Aldea:
 
     def getPc(self,edificios):
         casillas=self.edificios
-        con = sqlite3.connect('database.db')
+        con = sqlite3.connect('edificios.db')
         cursor = con.cursor()
         cont=0
         for i in range(len(edificios)):
@@ -111,7 +111,7 @@ class Aldea:
         l1=[]
         almacen=self.edificios[9]
         granero=self.edificios[10]
-        con = sqlite3.connect('database.db')
+        con = sqlite3.connect('edificios.db')
         cursor = con.cursor()
         cursor.execute("SELECT almacenaje FROM almacen WHERE id=%s;" % almacen)
         capAlma=cursor.fetchone()[0]
